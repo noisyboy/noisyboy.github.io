@@ -4,7 +4,7 @@ image.width= window.innerwidth;
 var source = "http://noisyboy.github.io/av.mp3";
 let audio = new Audio(source);
 audio.autoplay=true;
-audio.addEventListener("load",function(){
+image.addEventListener("load",function(){
 audio.play();
 });
 image.addEventListener("mouseover", function() {
