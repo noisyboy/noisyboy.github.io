@@ -3,7 +3,11 @@ const image = document.getElementById('image');
 image.width= window.innerwidth;
 var source = "http://noisyboy.github.io/av.mp3";
 let audio = new Audio(source);
-image.addEventListener("mouseup", function() {
+audio.autoplay=true;
+audio.addEventListener("load",function(){
+audio.play();
+});
+image.addEventListener("mouseover", function() {
 audio.play();  
 alert("Don't dare to touch me");
   if (confirm(" *Do you think that Noisy is smart ?")){
