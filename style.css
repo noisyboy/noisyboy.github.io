@@ -1,0 +1,32 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #101010;
+}
+.image{
+    width: 1000px;
+    height: 100%;
+}
+#hrd {
+    width: 1000px;
+    height: 5px;
+    animation: rainbow 0.0255s infinite ease-in;
+    animation-play-state: ;
+    
+}
+
+#range{
+    width: 400px;
+    height: 150px;
+}
+@keyframes rainbow {
+    10%{
+        height: 2px;
+        background-color:#81FF00;
+        transform: translatey(600px);
+    }
+    100%{
+        background-color:#81FF00;
+    }
+    
+}
