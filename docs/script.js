@@ -3,7 +3,7 @@ canvas.height=window.innerHeight;
 var ctx = canvas.getContext('2d');   
 
 
-var txt="NOISY_BOY";// window.prompt("Enter a String");
+var txt="An0nym0us";// window.prompt("Enter a String");
 //
 var n= 500;
 var arr = ["0","1"];
