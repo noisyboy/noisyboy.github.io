@@ -1,1 +1,50 @@
-eror
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Human make mistakes|</title>
+    <style type="text/css" media="all">
+  body{
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-image: radial-gradient(#000000,#5c5c5c);
+  }
+  .error{
+    text-align: center;
+    background-image: radial-gradient(100px,white,black);
+    position: absolute;
+    border-left: 10px solid red;
+    border-right: 10px solid lime;
+    top: 30%;
+    left:35%;
+    transform: translate(-50%,50%);
+    border-radius: 50%;
+   box-shadow: 0 0 5px black,0 10px 10px #1c1c1c,0 30px 10px cyan;
+   width:250px;
+   height: 250px;
+   animation: rot 5s infinite linear;
+  } 
+  @keyframes rot{
+    from{
+      transform: rotate(360deg);
+    }
+    to{
+      transform: rotate(0deg);
+    }
+  }
+    </style>
+  </head>
+  <body>
+    <div class="error" onclick="locate()">
+    </div>
+    <p style="color:white;text-align:center;font-family:courier;font-size:50px">Dark Energy</p>
+    <script type="text/javascript" charset="utf-8">
+const  locate =()=>{
+  location.href="https://www.google.com/?q=Cosmos+Dark+Energy";
+}
+      
+    </script>
+  </body>
+</html>
