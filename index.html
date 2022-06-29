@@ -26,11 +26,24 @@
       }
       .imgs{
         border-radius: 2px;
-      
       }
+         #loader{
+        animation: blink 2s infinite;
+        background: white;
+        position: absolute;
+        opacity: 60%;
+        width: 100%;
+        height: 100%;
+      }
+      @keyframes blink {
+        100%{
+          opacity: 90%;
+        }
     </style>
   </head>
-  <body>
+  <body onload="loader()">
+   <div id="loader">
+</div>
       <h1 class="head" >User</h1>
     <h1 class="head" style="background:#d1d1d1;color:black" >NoisyBoy</h1><br/>
 <a href="https://github.com/noisyboy"><img class="imgs" src="https://img.shields.io/badge/Github-noisyboy-informational?style=flat&logo=github&logoColor=green&color=white" alt="github" ></a>
@@ -44,6 +57,11 @@
     </ul>
     <a href="https://web.noisyboy.cf/riememer/dash/formlist.html"><img class='imgs' src="https://img.shields.io/badge/Dasboard-riememer-brightgreen?style=social&logo=linux"></a>
   <br/><a href="https://mega.nz/folder/OtRUkZrB#B39oJbIT1TYYaaU0TfjfgA" ><img class='imgs' src="https://img.shields.io/badge/mega-riememer-red?style=social&logo=mega"/></a>
+  <script type="text/javascript" charset="utf-8">
+  function loader(){
+    document.getElementById('loader').style.display='none'
+  }
+</script>
   </body>
 </html>
 
