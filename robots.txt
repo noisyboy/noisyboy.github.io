@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://noisyboy.github.io/noisyboy/sitemap.xml
+Sitemap: https://noisyboy.github.io/sitemap.xml
