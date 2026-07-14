@@ -2,21 +2,300 @@
 <html>
   <head>
 <link href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AAD+fwAA/b8AAPvfAAD37wAA7/cAAO/3AADZmwAA0YsAANPLAADf+wAA3/sAAO/3AADv9wAA888AAPw/AAA=" rel="icon" type="image/x-icon" />
-    <meta name="keywords" content="git.noisyboy.qzz.io,noisy,noisyboy,github,repos,repositories,hacking,tools,js,termux,jso,kali,deface,xss" />
-    <meta name="description" content="This is the collection of my gh repositories">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow" />
-<meta name="keywords" content="OSINT, security research, vulnerability scanning, exploit-db, shodan">
-<meta name="author" content="noisyboy">
+   
+    <meta name="title" content="noisyboy | noisyboy.qzz.io">
+    <meta name="description" content="The repository nexus of noisyboy. Exploring computational physics, security research, and system-level engineering.">
+    <meta name="keywords" content="noisyboy, github, security researcher, computational physics, penetration testing, arch linux, system administration, custom linux, scripts">
+    <meta name="author" content="noisyboy">
+    <meta name="theme-color" content="#ff2a00"> <meta property="og:type" content="website">
+    <meta property="og:url" content="https://noisyboy.github.io/">
+    <meta property="og:title" content="noisyboy | noisyboy.qzz.io">
+    <meta property="og:description" content="The repository nexus of noisyboy. Exploring computational physics, security research, and system-level engineering.">
+    <meta property="og:image" content="https://noisyboy.github.io/preview.jpg">
 
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-   <title>Noisy's_Repos</title>
- 
-    <body>
- <script>
-   window.location.href="https://noisyboy.github.io/enyo";
- </script>     
-    </body>
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://noisyboy.github.io/">
+    <meta property="twitter:title" content="noisyboy | wasteland.net">
+    <meta property="twitter:description" content="The repository nexus of noisyboy. Exploring computational physics, security research, and system-level engineering.">
+    <meta property="twitter:image" content="https://noisyboy.github.io/preview.jpg">
+
+    
+    <title>noisyboy | noisyboy.qzz.io</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0d0a08; /* Deep scorched earth */
+            /* CRT Scanline & Rust Grid Effect */
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 42, 0, 0.04) 2px, rgba(255, 42, 0, 0.04) 4px),
+                linear-gradient(rgba(30, 20, 15, 0.6) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(30, 20, 15, 0.6) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+            color: #a39b8e; /* Ashy text */
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+            height: 100vh;
+            box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.9); /* Vignette for bleakness */
+        }
+
+        #graph-container {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Scavenged HUD Tooltip */
+        #tooltip {
+            position: absolute;
+            background: rgba(15, 10, 8, 0.95);
+            border: 1px solid #ff2a00; /* Hazard red border */
+            padding: 12px;
+            border-radius: 2px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            font-size: 13px;
+            color: #39ff14; /* Toxic neon green */
+            box-shadow: 0 0 15px rgba(255, 42, 0, 0.3), inset 0 0 5px rgba(255, 42, 0, 0.2);
+            z-index: 10;
+            max-width: 250px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        #tooltip .desc { 
+            color: #a39b8e; 
+            margin-top: 8px; 
+            font-size: 11px; 
+            text-transform: none;
+            border-top: 1px dashed #4a2511;
+            padding-top: 8px;
+        }
+
+        .link {
+            stroke: #33150d; /* Frayed dark crimson */
+            stroke-opacity: 0.8;
+            stroke-width: 1.5px;
+            transition: stroke-width 0.2s, stroke-opacity 0.2s, stroke 0.2s;
+        }
+
+        .label {
+            font-size: 11px;
+            font-weight: bold;
+            pointer-events: none;
+            text-shadow: 2px 2px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000;
+            letter-spacing: 1px;
+        }
+
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.2rem;
+            color: #ff2a00;
+            text-shadow: 0 0 10px #ff2a00, 0 0 20px #ff2a00;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loading">INITIATING REPOSITORY WEB...</div>
+    <div id="tooltip"></div>
+    <div id="graph-container"></div>
+
+    <script>
+        const GITHUB_USER = 'noisyboy';
+        
+        async function fetchRepos() {
+            try {
+                const response = await fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100`);
+                if (!response.ok) throw new Error('API Request Failed');
+                const data = await response.json();
+                
+                document.getElementById('loading').style.display = 'none';
+                buildComplexGraph(data);
+            } catch (error) {
+                document.getElementById('loading').innerText = 'CRITICAL ERR: SIGNAL LOST.';
+                document.getElementById('loading').style.color = '#ff0000';
+                console.error(error);
+            }
+        }
+
+        function buildComplexGraph(repoData) {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const tooltip = d3.select("#tooltip");
+
+            const nodes = [];
+            const links = [];
+            const languages = new Set();
+
+            // Extract unique languages
+            repoData.forEach(r => {
+                const lang = r.language || 'UNKNOWN_SYS';
+                languages.add(lang);
+            });
+
+            // 1. Root Node (Hazard Core)
+            nodes.push({ id: GITHUB_USER, group: 'root', radius: 28, color: '#ff2a00' });
+
+            // 2. Language Nodes (Rusted Hubs)
+            languages.forEach(lang => {
+                nodes.push({ id: lang, group: 'lang', radius: 18, color: '#d35400' });
+                links.push({ source: GITHUB_USER, target: lang });
+            });
+
+            // 3. Repo Nodes (Toxic Terminals)
+            repoData.forEach(repo => {
+                const lang = repo.language || 'UNKNOWN_SYS';
+                // Dynamic sizing based on repo size (with min/max bounds)
+                const nodeSize = Math.max(8, Math.min(22, Math.log2(repo.size + 2) * 1.5));
+                
+                nodes.push({
+                    id: repo.name,
+                    group: 'repo',
+                    url: repo.html_url,
+                    desc: repo.description || 'DATA CORRUPTED // NO DESCRIPTION FOUND',
+                    radius: nodeSize,
+                    color: '#39ff14' // Toxic neon green
+                });
+                links.push({ source: lang, target: repo.name });
+            });
+
+            const svg = d3.select("#graph-container")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height)
+                .call(d3.zoom().scaleExtent([0.1, 4]).on("zoom", (event) => {
+                    g.attr("transform", event.transform);
+                }));
+
+            // SVG Glow Filter - intensified for the neon/radioactive look
+            const defs = svg.append("defs");
+            const filter = defs.append("filter").attr("id", "glow");
+            filter.append("feGaussianBlur").attr("stdDeviation", "4").attr("result", "coloredBlur");
+            const feMerge = filter.append("feMerge");
+            feMerge.append("feMergeNode").attr("in", "coloredBlur");
+            feMerge.append("feMergeNode").attr("in", "SourceGraphic");
+
+            const g = svg.append("g");
+
+            // Physics tuning for multi-tier web
+            const simulation = d3.forceSimulation(nodes)
+                .force("link", d3.forceLink(links).id(d => d.id).distance(d => d.source.group === 'root' ? 180 : 90))
+                .force("charge", d3.forceManyBody().strength(-300))
+                .force("center", d3.forceCenter(width / 2, height / 2))
+                .force("collide", d3.forceCollide().radius(d => d.radius + 15).iterations(2));
+
+            // Lines
+            const link = g.append("g")
+                .selectAll("line")
+                .data(links)
+                .join("line")
+                .attr("class", "link");
+
+            // Nodes
+            const node = g.append("g")
+                .selectAll("circle")
+                .data(nodes)
+                .join("circle")
+                .attr("r", d => d.radius)
+                .attr("fill", d => d.color)
+                .attr("filter", "url(#glow)")
+                .style("cursor", d => d.group === 'repo' ? 'crosshair' : 'grab')
+                .call(drag(simulation));
+
+            // Interaction Mechanics
+            node.on("mouseover", (event, d) => {
+                // Ignite connected links (bright hazard orange)
+                link.style("stroke", l => l.source.id === d.id || l.target.id === d.id ? "#ff8c00" : "#33150d")
+                    .style("stroke-opacity", l => l.source.id === d.id || l.target.id === d.id ? 1 : 0.1)
+                    .style("stroke-width", l => l.source.id === d.id || l.target.id === d.id ? 3 : 1);
+
+                // Tooltip
+                if (d.group === 'repo') {
+                    tooltip.transition().duration(150).style("opacity", 1);
+                    tooltip.html(`<strong>[ ${d.id} ]</strong><div class="desc">${d.desc}</div>`)
+                        .style("left", (event.pageX + 20) + "px")
+                        .style("top", (event.pageY - 30) + "px");
+                }
+            })
+            .on("mouseout", () => {
+                // Revert links to faint wire state
+                link.style("stroke", "#33150d").style("stroke-opacity", 0.8).style("stroke-width", 1.5);
+                tooltip.transition().duration(300).style("opacity", 0);
+            })
+            .on("click", (event, d) => {
+                if (d.url) window.open(d.url, '_blank');
+            });
+
+            // Labels
+            const label = g.append("g")
+                .selectAll("text")
+                .data(nodes)
+                .join("text")
+                .attr("class", "label")
+                .attr("dx", d => d.radius + 6)
+                .attr("dy", 4)
+                // Color coding labels to match their nodes, but slightly muted
+                .style("fill", d => d.group === 'root' ? '#ff6b4a' : (d.group === 'lang' ? '#e67e22' : '#88d49e'))
+                .text(d => d.id);
+
+            // Ticking
+            simulation.on("tick", () => {
+                link.attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+
+                node.attr("cx", d => d.x)
+                    .attr("cy", d => d.y);
+
+                label.attr("x", d => d.x)
+                     .attr("y", d => d.y);
+            });
+
+            function drag(simulation) {
+                function dragstarted(event) {
+                    if (!event.active) simulation.alphaTarget(0.3).restart();
+                    event.subject.fx = event.subject.x;
+                    event.subject.fy = event.subject.y;
+                }
+                function dragged(event) {
+                    event.subject.fx = event.x;
+                    event.subject.fy = event.y;
+                }
+                function dragended(event) {
+                    if (!event.active) simulation.alphaTarget(0);
+                    event.subject.fx = null;
+                    event.subject.fy = null;
+                }
+                return d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended);
+            }
+        }
+
+        window.addEventListener('resize', () => {
+            const svg = d3.select("svg");
+            if(!svg.empty()) svg.attr("width", window.innerWidth).attr("height", window.innerHeight);
+        });
+
+        fetchRepos();
+    </script>
+</body>
 </html>
-
-
